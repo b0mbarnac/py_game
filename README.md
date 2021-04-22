@@ -1,4 +1,8 @@
 # py_game
 by Gayazov Bulat and Lysenkov Ivan
 
-py version 2.7
+connect to Aidar's server
+
+py version 2.7.18
+
+python client.py username

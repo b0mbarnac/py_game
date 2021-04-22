@@ -1,4 +1,4 @@
-from player import *
+from player1 import *
 
 class Manager:
 	def ___init___(self,p):

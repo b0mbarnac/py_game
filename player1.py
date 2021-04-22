@@ -1,4 +1,4 @@
-from obstacle import *
+
 
 class Player:
   def __init__(self,position, opponentx, opponenty, sizex, sizey, max_obstacles):
