@@ -8,6 +8,8 @@ import manager as m
 import sys
 
 sock = socket.socket()
+
+
 sock.connect(('localhost', 5703))
 
 data = "CONNECTION {{\"LOGIN\":\"{0}\"}}".format(sys.argv[1])
@@ -44,16 +46,18 @@ position = dictData['position']
 opponentPosition = dictData['opponentPosition']
 barriers = dictData['barriers']
 
-p1 = p.Player(position,opponentPosition[0],opponentPosition[1], width, height,playerBarrierCount)
+p1 = p.Player(position,opponentPosition[1],opponentPosition[0], width, height,playerBarrierCount)
 p1.initialization(barriers)	
+m1 = m.Manager(p1)
 
 if (move == False):
 	time.sleep(2)
 	
 else:
-
-	m1 = m.Manager(p1)
 	tmpstr = m1.first()
+	print(sys.argv[1])
+	print('otpravil serveru')
+	print(tmpstr)
 	sock.send(tmpstr)
 	time.sleep(2)
 #playing
@@ -65,7 +69,10 @@ while True:
 	if string[7:8] == 'E':
 		break
 	else:
-		tmpstr=m.game(data)
+		tmpstr= m1.game(string)
+		print(sys.argv[1])
+		print('otpravil serveru')
+		print(tmpstr)
 		sock.send(tmpstr)
 	time.sleep(2)
 
